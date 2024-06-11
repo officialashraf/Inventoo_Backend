@@ -7,7 +7,7 @@ const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 const path = require("path");
 const cors = require("cors");
-const CLIENT_APP_PATH = '../frontend/build';
+//const CLIENT_APP_PATH = '../frontend/build';
 // config file coneection
 dotenv.config({path:"Backend/config/config.env"});
 
@@ -30,19 +30,22 @@ app.use("/api/v1", order);
 app.use("/api/v1",payment);
 
 
-app.use(express.static(CLIENT_APP_PATH));
+// app.use(express.static(CLIENT_APP_PATH));
 
-// ...express middlewares, rest, etc...
+// // ...express middlewares, rest, etc...
 
-// in the end of app routing
-// serves frontend application
+// // in the end of app routing
+// // serves frontend application
+// app.get('/*', (req, res) => {
+//     res.sendFile(path.resolve(`${CLIENT_APP_PATH}/index.html`), { root: __dirname }, err => {
+//         if (err) {
+//             res.status(500).send(err);
+//         }
+//     });
+// });
 app.get('/*', (req, res) => {
-    res.sendFile(path.resolve(`${CLIENT_APP_PATH}/index.html`), { root: __dirname }, err => {
-        if (err) {
-            res.status(500).send(err);
-        }
-    });
-});
+//res.status(500).send("hello");
+//         })
 
 //Middleware for Error
 app.use(errorMiddleware);
