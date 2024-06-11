@@ -43,9 +43,9 @@ app.use("/api/v1",payment);
 //         }
 //     });
 // });
-app.get('/*', (req, res) => {
-//res.status(500).send("hello");
-//         })
+app.get('/', (req, res) => {
+res.send("hello");
+         })
 
 //Middleware for Error
 app.use(errorMiddleware);
